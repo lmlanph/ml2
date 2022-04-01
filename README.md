@@ -8,4 +8,4 @@ Nginx\
 Gunicorn\
 Postgres\
 Flask\
-React\
+React
