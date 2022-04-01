@@ -1,0 +1,91 @@
+db: ml2
+
+
+***
+escape single quote like this (use a second single quote):
+I don''t get it
+***
+
+
+CREATE TABLE images (
+id SERIAL NOT NULL PRIMARY KEY,
+image_url VARCHAR(250),
+image_description TEXT
+);
+
+SINGLE ENTRIES...
+INSERT INTO images (image_url, image_description) VALUES ('./images/owl.jpeg', 'photo of owl');
+INSERT INTO images (image_url, image_description) VALUES ('./images/cord.jpeg', 'electrical cord');
+
+MULTI ENTRIES...
+INSERT INTO images (image_url, image_description)
+VALUES
+    ('./images/corn.jpeg', 'one corny photo'),
+    ('./images/lifeofparty.jpeg', 'no joke'),
+    ('./images/thataway.jpeg', 'which way did it go'),
+    ('./images/outhouse.png', 'shitters full!');
+
+
+CREATE TABLE image_comments (
+comment_id SERIAL NOT NULL PRIMARY KEY,
+image_id INTEGER REFERENCES images (id),
+comment TEXT,
+votes INTEGER,
+submitted_by TEXT
+);
+
+INSERT INTO image_comments (image_id, comment, votes, submitted_by) VALUES (6, 'wow, so serene!', 4, 'Japan');
+INSERT INTO image_comments (image_id, comment, votes, submitted_by) VALUES (7, 'I don''t get it', 2, 'England');
+
+INSERT INTO image_comments (image_id, comment, votes, submitted_by)
+VALUES
+    (),
+    (),
+    (),
+    ();
+
+INSERT INTO image_comments (image_id, comment, votes, submitted_by)
+VALUES
+    (9, 'ah, this takes me back... :P', 0, 'Saudi Arabia'),
+    (9, 'quite lovely', 2, 'Ukraine');
+
+
+___
+
+
+
+JOIN
+inner--select stuff from both tables (*note you first SELECT fields from both tables)
+
+
+SELECT 
+    id, image_url, image_description, comment_id, image_id, comment, votes, submitted_by
+FROM
+    images
+INNER JOIN image_comments
+    ON id = image_id;
+
+
+optionally, add WHERE, to be more specific (for example, select for specific image id, or specific number of votes?
+
+
+SELECT 
+    id, image_url, image_description, comment_id, image_id, comment, votes, submitted_by
+FROM
+    images
+INNER JOIN image_comments
+    ON id = image_id
+WHERE votes > 5;
+
+
+___
+
+
+MISC
+***careful here, add WHERE first--change a value in a table...
+
+UPDATE table_name
+SET column1 = value1,
+    column2 = value2,
+    ...
+WHERE condition;
