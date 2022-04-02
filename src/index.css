@@ -16,13 +16,11 @@ input {
   outline: none;
   font-size: inherit;
   /*margin: 6px;*/
-
 }
 
 textarea:focus, input:focus{
     outline: solid 1px darkgray;
     border: none;
-
 }
 
 .header {
@@ -207,7 +205,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   justify-content: space-around;
   padding: 20px;
 }
