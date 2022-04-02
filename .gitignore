@@ -12,6 +12,7 @@
 /build
 
 # misc
+psql_notes.txt
 devmail_ml2.py
 .env
 .DS_Store
