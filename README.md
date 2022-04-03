@@ -1,7 +1,7 @@
-# ml2
+# ml2 (web app)
 
-simple gallery with image comments, comment upvotes\
-top 4 (by activity) displayed on home page\
+simple gallery with image comments and comment upvotes\
+top 4 images (by activity) displayed on "Top" (home) page\
 \
 AWS EC2 Linux2\
 Nginx\
